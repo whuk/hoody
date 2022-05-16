@@ -28,7 +28,7 @@ object RoleHeader {
     object XSystem : Role {
         const val NAME = "system ID"
         const val KEY = "x-system-id"
-        const val DATA_TYPE = "string"
+        const val DATA_TYPE = "String"
         const val PARAM_TYPE = "header"
     }
 }

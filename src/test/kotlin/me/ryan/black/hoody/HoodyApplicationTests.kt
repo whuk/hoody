@@ -9,5 +9,4 @@ class HoodyApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
