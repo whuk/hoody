@@ -1,23 +1,34 @@
 package me.ryan.black.hoody.api.domain
 
-import me.ryan.black.hoody.api.common.Reply
-import me.ryan.black.hoody.api.common.toReply
-import me.ryan.black.hoody.api.lock.EnableUserLock
-import me.ryan.black.hoody.api.permission.RoleHeader
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestHeader
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import java.security.Principal
 
-@RestController
-@RequestMapping("/v1/sample")
+@Controller
 class SampleController {
 
-    @EnableUserLock
-    @GetMapping
-    fun helloWorld(
-        @RequestHeader(RoleHeader.XUser.KEY) userId: Long
-    ): Reply<String> {
-        return "Hello World".toReply()
+    @GetMapping("/")
+    fun index(model: Model, principal: Principal): String {
+        model.addAttribute("message", "Hello~!! ${principal.name}")
+        return "index"
+    }
+
+    @GetMapping("/info")
+    fun info(model: Model): String {
+        model.addAttribute("message", "Info")
+        return "info"
+    }
+
+    @GetMapping("/dashboard")
+    fun dashboard(model: Model, principal: Principal): String {
+        model.addAttribute("message", "Hello~!! ${principal.name}")
+        return "dashboard"
+    }
+
+    @GetMapping("/admin")
+    fun admin(model: Model, principal: Principal): String {
+        model.addAttribute("message", "Hello Admin~!! ${principal.name}")
+        return "admin"
     }
 }

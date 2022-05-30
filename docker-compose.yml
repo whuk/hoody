@@ -6,7 +6,7 @@ services:
     container_name: black-hoody-ryan_mariadb
     command: "mysqld --character-set-server=utf8mb4"
     environment:
-      MYSQL_ROOT_PASSWORD: local
+      MYSQL_ROOT_PASSWORD: ryan
       MYSQL_DATABASE: black-hoody-ryan
       MYSQL_USER: ryan
       MYSQL_PASSWORD: ryan
