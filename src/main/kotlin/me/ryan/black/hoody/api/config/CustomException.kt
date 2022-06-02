@@ -4,7 +4,7 @@ import me.ryan.black.hoody.api.common.Error
 import me.ryan.black.hoody.api.common.ErrorCode
 import me.ryan.black.hoody.api.common.ErrorSource
 
-open class CustomException(error: ErrorSource) : RuntimeException(error.message)
+open class CustomException(val error: ErrorSource) : RuntimeException(error.message)
 
 /**
  * Human Exception
