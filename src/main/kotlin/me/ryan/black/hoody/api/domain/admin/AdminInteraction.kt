@@ -4,13 +4,15 @@ import me.ryan.black.hoody.api.domain.admin.repository.AdminRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
 @Service
 @Transactional
 class AdminInteraction(
-    private val adminRepository: AdminRepository
+    private val adminRepository: AdminRepository,
+    private val passwordEncoder: PasswordEncoder
 ) : UserDetailsService {
 
     override fun loadUserByUsername(username: String): UserDetails {
@@ -24,7 +26,7 @@ class AdminInteraction(
 
     fun create(account: AdminResources.Request.Account): Admin {
         val admin = Admin(account.username, account.type)
-        admin.encodePassword(account.password)
+        admin.encodePassword(account.password, passwordEncoder)
         return adminRepository.save(admin)
     }
 }

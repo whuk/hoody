@@ -1,5 +1,6 @@
 package me.ryan.black.hoody.api.domain.admin
 
+import org.springframework.security.crypto.password.PasswordEncoder
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -19,7 +20,7 @@ class Admin(
 
     var password: String? = null
 
-    fun encodePassword(password: String) {
-        this.password = "{noop}$password"
+    fun encodePassword(password: String, passwordEncoder: PasswordEncoder) {
+        this.password = passwordEncoder.encode(password)
     }
 }
