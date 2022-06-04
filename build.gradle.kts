@@ -61,6 +61,7 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java:8.0.29")
     testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.3.1")
     testImplementation("org.testcontainers:testcontainers:1.16.3")
+    testImplementation("org.springframework.security:spring-security-test:5.7.1")
 
     implementation("org.apache.httpcomponents.client5:httpclient5:5.1.3")
 
