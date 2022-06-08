@@ -30,6 +30,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-undertow") {
@@ -58,7 +61,7 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java:8.0.29")
     testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.3.1")
     testImplementation("org.testcontainers:testcontainers:1.16.3")
-
+    testImplementation("org.springframework.security:spring-security-test")
 
     implementation("org.apache.httpcomponents.client5:httpclient5:5.1.3")
 

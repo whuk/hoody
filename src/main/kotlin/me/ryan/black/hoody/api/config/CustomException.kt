@@ -11,6 +11,8 @@ open class CustomException(val error: ErrorSource) : RuntimeException(error.mess
  */
 open class HumanException(error: ErrorSource) : CustomException(error)
 
+class UsernameInvalidException : HumanException(Error(ErrorCode.HI00, "Username Invalid"))
+
 /**
  * UnAuthorized Exception
  */
