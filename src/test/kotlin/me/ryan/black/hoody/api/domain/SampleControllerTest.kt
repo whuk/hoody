@@ -10,7 +10,7 @@ internal class SampleControllerTest : FlowTestFormSupport() {
 
     @Test
     @DisplayName("info 페이지 테스트")
-    fun infoMethodTest() {
+    fun infoPageTest() {
         // Given
         val sampleControllerFlow = SampleControllerFlow(mockMvc)
         // When
@@ -29,5 +29,17 @@ internal class SampleControllerTest : FlowTestFormSupport() {
         val reply = sampleControllerFlow.indexMethodTest()
         // Then
         reply shouldContain "<h1>Hello~!! ryan</h1>"
+    }
+
+    @Test
+    @DisplayName("admin 페이지 테스트")
+    @WithMockUser(username = "ryan", password = "1234", roles = ["ADMIN"])
+    fun adminPageTest() {
+        // Given
+        val sampleControllerFlow = SampleControllerFlow(mockMvc)
+        // When
+        val reply = sampleControllerFlow.adminMethodTest()
+        // Then
+        reply shouldContain "<h1>Hello Admin~!! ryan</h1>"
     }
 }

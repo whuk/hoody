@@ -32,4 +32,18 @@ internal class SampleControllerFlow(
             .response
             .contentAsString
     }
+
+    fun adminMethodTest(): String {
+        val uri = "/admin"
+
+        return mockMvc.get(uri) {
+            contentType = MediaType.APPLICATION_FORM_URLENCODED
+        }.andDo {
+            print()
+        }.andExpect {
+            status { is2xxSuccessful() }
+        }.andReturn()
+            .response
+            .contentAsString
+    }
 }
