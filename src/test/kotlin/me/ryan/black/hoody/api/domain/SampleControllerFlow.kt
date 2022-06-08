@@ -18,4 +18,18 @@ internal class SampleControllerFlow(
             .response
             .contentAsString
     }
+
+    fun indexMethodTest(): String {
+        val uri = "/"
+
+        return mockMvc.get(uri) {
+            contentType = MediaType.APPLICATION_FORM_URLENCODED
+        }.andDo {
+            print()
+        }.andExpect {
+            status { is2xxSuccessful() }
+        }.andReturn()
+            .response
+            .contentAsString
+    }
 }
